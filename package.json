@@ -1,0 +1,19 @@
+{
+  "name": "redwall.futilities",
+  "version": "1.0.0",
+  "description": "A bunch of JS/TS flavored utility methods",
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RedWall/Futilities-js.git"
+  },
+  "author": "Red Wall",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/RedWall/Futilities-js/issues"
+  },
+  "homepage": "https://github.com/RedWall/Futilities-js#readme",
+  "devDependencies": {
+    "@types/jquery": "^3.5.5",
+    "@types/kendo-ui": "^2021.3.0"
+  }
+}
