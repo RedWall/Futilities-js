@@ -1,0 +1,26 @@
+{
+    "compilerOptions": {
+      "target": "ES2019",
+      "module": "ES2015",
+      "lib": [
+        "DOM",
+        "DOM.Iterable",
+        "ES2019"
+        ],
+      "declaration": true,
+      "declarationMap": true,
+      "sourceMap": true,
+      "outDir": "lib",
+      "strict": false,
+      "moduleResolution": "node",
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+    },
+    "include": [
+      "src/**/*.ts",
+    ],
+    "exclude": [
+      "node_modules",
+      "lib"
+    ]
+}
