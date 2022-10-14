@@ -5,6 +5,10 @@ export class RegisterKendoExtensions {
             kendo.data.ObservableArray.prototype.findIndex = function (predicate: (value: any, index: number, obj: any[]) => boolean): number {
                 return this.toJSON().findIndex(predicate);
             }
+
+            kendo.data.ObservableArray.prototype.flatMap = function<T> (predicate: (currentValue: any, index?: number, array?: any[]) => T): T[] { 
+                return this.toJSON().flatMap(predicate);
+            }
         }
     }
 }
