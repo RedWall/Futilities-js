@@ -79,3 +79,16 @@ export function appendNewWindowToken(targetUrl: string, origin?: string): string
 export function makeRelativeUrl(targetUrl: URL): string {
     return targetUrl.pathname + targetUrl.search;
 }
+
+export function slugify(phrase: string): string {
+    let interimStr = phrase.toLowerCase();
+    // invalid chars
+    interimStr = interimStr.replace(/[^a-z0-9\s-]/gi, "");
+    // convert multiple spaces into one space
+    interimStr = interimStr.replace(/\s+/gm, " ").trim();
+    // cut and trim
+    interimStr = interimStr.substring(0, interimStr.length <= 45 ? interimStr.length : 45).trim();
+    interimStr = interimStr.replace(/\s/gm, "-"); // hyphens
+
+    return interimStr;
+}

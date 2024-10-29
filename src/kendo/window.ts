@@ -69,7 +69,20 @@ export class KendoWindowHelper {
         });
     }
 
-    public static Confirm(message: string, windowTitle: string, okText: string, cancelText: string, dialogClass: string): JQueryPromise<any> {
+    public static alert(message: string, windowTitle: string, okText: string, dialogClass: string): kendo.ui.Dialog {
+        return $('<div></div>').addClass(dialogClass).kendoAlert({
+            title: windowTitle,
+            content: message,
+            messages: {
+                okText: okText,
+            }
+        } as any).data('kendoAlert').open();
+    };
+
+    /**
+    * @deprecated('Use confirmAsync instead')
+    */
+    public static confirm(message: string, windowTitle: string, okText: string, cancelText: string, dialogClass: string): JQueryPromise<any> {
         return $('<div></div>').addClass(dialogClass).kendoConfirm({
             title: windowTitle,
             content: message,
@@ -78,6 +91,19 @@ export class KendoWindowHelper {
                 cancel: cancelText
             }
         }).data('kendoConfirm').open().result;
+    };
+
+    public static confirmAsync(message: string, windowTitle: string, okText: string, cancelText: string, dialogClass: string): Promise<boolean> {
+        return new Promise<boolean>((resolve, reject) => {
+            $('<div></div>').addClass(dialogClass).kendoConfirm({
+                title: windowTitle,
+                content: message,
+                messages: {
+                    okText: okText,
+                    cancel: cancelText
+                }
+            }).data('kendoConfirm').open().result.done(() => resolve(true)).fail(() => resolve(false));
+        });
     };
 
     private static openWindow(kwin: kendo.ui.Window, title: string | null = null, closeEvent: Function | null = null): kendo.ui.Window {
